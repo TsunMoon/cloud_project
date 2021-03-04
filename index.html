@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Boba Dink</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+    <!-- AWESOME     -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet" />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header style="margin: 0; padding: 0" class="container-fluid">
+        <div id="header">
+            <div class="header_logo">
+                <img src="https://bizweb.dktcdn.net/100/270/285/themes/801917/assets/logo.png?1608110857353"
+                    alt="logo" />
+            </div>
+            <div>
+                <span onclick="showCart()" class="header_logo_cart" data-toggle="modal" data-target="#cartModal" ><i class="fa fa-shopping-cart"></i></span>
+                <span class="header_cart_color"><span id="header_cart_number">0</span></span>
+            </div>            
+        </div>
+    </header>
+
+    <!-- BANNER -->
+    <section style="padding: 0" class="container-fluid banner">
+        <div class="banner_image">
+            <img src="https://bizweb.dktcdn.net/100/270/285/themes/801917/assets/slider_2.jpg?1608110857353" alt="" />
+        </div>
+    </section>
+
+    <!-- SERVICE -->
+    <section style="margin-top: 30px" class="container">
+        <div class="row">
+            <div class="col-4">
+                <span>
+                    <img src="//bizweb.dktcdn.net/100/270/285/themes/801917/assets/service_1.png?1608110857353"
+                        alt="Giao hàng miễn phí" />
+                </span>
+                <div class="service_content">
+                    <span class="content__title">Giao hàng miễn phí</span>
+                    <span class="content__detail">Với các đơn hàng từ
+                        <span class="text-danger">100.000đ</span>
+                        trở lên
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <span>
+                    <img src="//bizweb.dktcdn.net/100/270/285/themes/801917/assets/service_2.png?1608110857353"
+                        alt="Phục vụ nhanh 24/7" />
+                </span>
+                <div class="service_content">
+                    <span class="content__title">Phục vụ nhanh 24/7</span>
+                    <span class="content__detail">8h00am - 22h30pm tất cả các ngày trong tuần</span>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <span>
+                    <img src="//bizweb.dktcdn.net/100/270/285/themes/801917/assets/service_3.png?1608110857353"
+                        alt="Đồ uống đa dạng" />
+                </span>
+                <div class="service_content">
+                    <span class="content__title">Đồ uống đa dạng</span>
+                    <span class="content__detail">Ding tee,matcha, gong cha,..</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MINI BANNER -->
+    <section style="margin-top: 10px;" class="container-fluid">
+        <div class="row">
+            <div class="col-6 mini_banner_item">
+                <img src="https://bizweb.dktcdn.net/100/270/285/themes/801917/assets/banner_01.jpg?1608110857353"
+                    alt="">
+            </div>
+            <div class="col-6 mini_banner_item">
+                <img src="//bizweb.dktcdn.net/100/270/285/themes/801917/assets/banner_02.jpg?1608110857353" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOW -->
+
+    <!-- LOGO DRINK -->
+
+    
+    <div style="margin-top: 70px" class="title_section_center mr_0">
+        <h2 class="title drink"><span>Đồ uống</span></h2>
+    </div>
+
+    <div style="margin-top: 20px;" class="container">
+        <div class="row"> 
+            <div class="col-10">
+                <input id="inpSearchDrink" type="text" class="form-control" placeholder="Tìm kiếm đồ uống" />
+            </div>
+            <div class="col-2">
+                <button onclick="searchDrink()" class="btn btn-primary"><i class="fa fa-search"></i></button>
+            </div>
+       </div>
+    </div>
+
+   
+    <!-- SECTION DRINK -->
+    <section style="height: 920px; margin-top: 20px;" class="container-fluid">
+        <div id="show_drink" class="row">
+            <!-- Render Drink ở đây -->
+        </div>
+        <div style="margin-top: 20px">
+            <div style="width: 200px; margin: auto;" id="div_drinkPaging" >
+                <ul id="drinkPaging">
+    
+                </ul>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- LOGO FOOD -->
+
+    <div style="margin-top: 90px" class="title_section_center1 mr_0">
+        <h2 class="title drink"><span>Đồ ăn vặt</span></h2>
+    </div>
+
+    <div style="margin-top: 20px;" class="container">
+        <div class="row"> 
+            <div class="col-10">
+                <input id="inpSearchFood" type="text" class="form-control" placeholder="Tìm kiếm đồ ăn vặt" />
+            </div>
+            <div class="col-2">
+                <button onclick="searchFood()" class="btn btn-primary"><i class="fa fa-search"></i></button>
+            </div>
+       </div>
+    </div>
+
+    
+
+    <!-- SECTION FOOD -->
+    <section style="height: 920px;" class="container-fluid">
+        <div id="show_food" class="row">
+            <!-- Render Food ở đây -->
+        </div>
+        <div style="margin-top: 20px">
+            <div style="width: 200px; margin: auto;" id="div_foodPaging" >
+                <ul id="foodPaging">
+    
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="padding: 0; margin-top: 50px;" class="container-fluid">
+        <div class="container">
+            <div class="footer_inner">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="footer-widget">
+                            <div class="icon_fot">
+                                <span class="block_img_"><img
+                                        src="//bizweb.dktcdn.net/100/270/285/themes/801917/assets/home_.png?1608110857353"
+                                        alt="BobaDrink" /></span>
+                            </div>
+                            <h4 class="cliked margin-bottom-10 hasclick">
+                                <span>Giờ mở cửa</span>
+                            </h4>
+                            <div class="content_f">
+                                <span class="first_title block_">Thứ 2-6: <span>8h00 am - 22h00 pm</span></span>
+                                <span class="first_title block_">Thứ 7-CN: <span>9h00 am - 21h00 pm</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="footer-widget">
+                            <div class="icon_fot">
+                                <span class="block_img_"><img
+                                        src="//bizweb.dktcdn.net/100/270/285/themes/801917/assets/email_.png?1608110857353"
+                                        alt="BobaDrink" /></span>
+                            </div>
+                            <h4 class="cliked margin-bottom-10 hasclick">
+                                <span>Thông tin liên hệ</span>
+                            </h4>
+                            <div class="content_f">
+                                <span class="block_">TP Hồ Chí Minh Vietnam</span>
+                                <span class="block_">
+                                    Hotline:
+                                    <a href="tel:18006750"> 1800 6750 </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="footer-widget">
+                            <div class="icon_fot">
+                                <span class="block_img_"><img
+                                        src="//bizweb.dktcdn.net/100/270/285/themes/801917/assets/connect_.png?1608110857353"
+                                        alt="BobaDrink" /></span>
+                            </div>
+                            <h4 class="cliked margin-bottom-10">
+                                <span>Kết nối với chúng tôi</span>
+                            </h4>
+                            <ul class="follow_option">
+                                <li>
+                                    <a class="goplus" href="#" title="Theo dõi Google Plus BobaDrink"><i
+                                            class="fa fa-google-plus"></i></a>
+                                </li>
+                                <li>
+                                    <a class="twitter" href="#" title="Theo dõi Twitter BobaDrink"><i
+                                            class="fa fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a class="fb" href="#" title="Theo dõi Facebook BobaDrink"><i
+                                            class="fa fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a class="in" href="#" title="Theo dõi Linkedin BobaDrink"><i
+                                            class="fa fa-linkedin"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL -->
+
+    <!-- Modal CART-->
+    <div  class="modal fade" id="cartModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div style="max-width: 1140px;"  class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Giỏ Hàng</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped table-hover ">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Tên sản phẩm</th>
+                                <th>Hình ảnh</th>                                                                              
+                                <th>Giá tiền</th>                                
+                                <th>Số lượng</th>     
+                                <th>Tổng tiền</th>                                       
+                                <th>Chức năng</th>                        
+                            </tr>
+                        </thead>
+                        <tbody id="table_body_cart">
+                           
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div style="display: flex" class="col-8">
+                            <h4>Tổng Cộng: </h4>
+                            <h2 style="margin-left: 10px" id="total_amount"></h2>
+                            <h5 style="margin-left: 8px">VND</h>
+                        </div>
+                        <div class="col-4">                            
+                                <button  id="btnPay" class="btn btn-success" data-toggle="modal" data-target="#phoneModal" >Thanh Toán</button>                                                        
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="btn_close_cart" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Phone Modal -->
+<div class="modal fade" id="phoneModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Xác thực số điện thoại</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+              <label for="inp_phone_payment">Số điện thoại</label>
+            <input id="inp_phone_payment" class="form-control" type="number" placeholder="Nhập sớ điện thoiạ của bạn">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="btn_close_phone_input" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" onclick="clickPayment()" class="btn btn-primary">Okay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- AXIOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous"></script>
+
+    <!--        SWEETALRT-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <!-- TWBS PAGINATION -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.js" integrity="sha512-uzuo1GprrBscZGr+iQSv8+YQQsKY+rSHJju0FruVsGHV2CZNZPymW/4RkxoHxAxw3Lo5UQaxDMF8zINUfAsGeg==" crossorigin="anonymous"></script>
+
+    <!-- MAIN JS -->
+    <script src="./dto/CartItemRequest.js"></script>
+    <script src="./model/CartItem.js"></script>
+    <script src="./model/Product.js"></script>
+    <script src="./js/global.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

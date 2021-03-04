@@ -1,0 +1,190 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header_top {
+  height: 50px;
+  background-color: #343a40;
+}
+.header__img {
+  width: 100%;
+  height: 100%;
+  text-align: center; 
+  color: white;
+}
+
+
+
+.header_icon {
+  display: flex;  
+}
+
+.icon__icon{
+    display: flex;
+}
+.icon__img{
+    width: 100%;
+    height: 100%;         
+}
+.icon__img img{
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box; 
+    border-radius: 50px;
+}
+
+.icon__name{
+    padding-top: 10px;
+    color: whitesmoke;
+}
+
+
+/* CONTENT */
+
+
+.content__icon i{
+  font-size: 80px;
+  position: absolute;
+  top: 20px;
+  right: 15px;
+}
+
+.number_css{
+  font-size: 50px;
+  margin-left: 30px;
+  
+}
+
+.content__inner{
+  color: #FFFFFF;
+  padding-top: 18px;
+}
+
+.content__inner p{
+  font-size: 20px;
+  margin-left: 40px;
+}
+
+.small_box_footer{
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  display: block;
+  text-align: center;   
+}
+
+.small_box_footer:hover{
+  background: rgba(0, 0, 0, 0.15);
+  color: #ffffff;
+}
+.content__item{
+  cursor: pointer;
+}
+
+
+.content__item:hover  .content__icon i{
+  font-size:100px ;
+  transition: all 0.5s;
+}
+
+.chart{
+  margin-top: 20px;
+}
+
+/* FREELANCER */
+
+.free_search{
+  margin-top: 20px;
+}
+
+
+
+/* Table */
+.table__img img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+/* DETAIL */
+
+.detail__img{
+  margin-left: 60px;
+}
+
+.detail__img img{
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+}
+
+.detail__name{
+  margin-top: 20px;
+}
+
+.checked {
+  color: orange;
+}
+
+/* Phân Trang */ 
+.content__paging{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content__paging .active{
+  background: #ff6e06;
+  border: 1px solid #ff6e06;
+}
+
+.content__paging .active a{
+  color: white;
+}
+
+
+ .content__paging .page-config{
+  margin-right: 30px;
+}
+
+ .content__paging .page-config select{
+  width: 50px;
+  height: 25px;
+  border-radius: 3px;
+}
+
+ .content__paging .total-item , .total-page{
+  margin-right: 30px;
+}
+
+ .content__paging .number-page{
+  display: flex;
+}
+
+.content__paging ul{
+  display: flex;
+  justify-content: center;
+}
+
+.content__paging li{
+ width: 30px;
+ height: 30px;
+ border-radius: 3px;
+ border: 1px solid gray;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-right: 15px;
+ cursor: pointer;
+}
+
+ .content__paging ul li a{
+  color:black;
+}
+
+.btn-active{
+  color: #c6c9cc;
+  border: solid 1px #c6c9cc !important;
+}
+
