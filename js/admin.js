@@ -178,6 +178,79 @@ const clickAddNewProduct = () => {
   createNewProduct(name,quantity,price,category,image, autoRun);
 };
 
+// 16. upload hình ảnh lên firebase
+const uploadImage = () => {
+  let ref = firebase.storage().ref();
+
+  let file = document.querySelector("#inp_file_img").files[0];
+
+  let name = new Date() + '-' + file.name;
+
+  const metadata = {
+    contentType: file.type
+  };
+
+  let task = ref.child(name).put(file,metadata);
+
+  task
+  .then(snapshot => snapshot.ref.getDownloadURL())
+  .then(url => {
+    console.log("url", url);
+    alert("Image Upload Successful");
+    let imageUpload = document.querySelector("#imgAdd");
+    imageUpload.src = url;
+    document.getElementById("inpImageAdd").value = url;
+  })
+
+}
+
+
+
+const uploadImageDrink = () => {
+  let ref = firebase.storage().ref();
+
+  let file = document.querySelector("#inp_file_img_drink").files[0];
+
+  let name = new Date() + '-' + file.name;
+
+  const metadata = {
+    contentType: file.type
+  };
+
+  let task = ref.child(name).put(file,metadata);
+
+  task
+  .then(snapshot => snapshot.ref.getDownloadURL())
+  .then(url => {
+    console.log("url", url);
+    alert("Image Upload Successful");
+    let imageUpload = document.querySelector("#imgDetail");
+    imageUpload.src = url;
+  })
+};
+
+
+// 17. Xóa thông tin dư trên modal
+const deleteResidualInformationCreate = ()=> {
+         //Xóa modal
+        //  document.getElementById("btnUpdateDetail").value= "";
+        //  document.getElementById("inpNameDetail").value = "";
+        //  document.getElementById("inpQuantityDetail").value = "";
+        //  document.getElementById("inpPriceDetail").value = "";
+       
+        //   document.getElementById("sopCategoty").value = "Đồ uống";
+        //   document.getElementById("inpImageDetail").value= "";
+
+           document.getElementById("inpNameAdd").value = "";
+           document.getElementById("inpQuantityAdd").value = null;
+           document.getElementById("inpPriceAdd").value = null;
+        
+          document.getElementById("sopCategotyAdd").value = "Đồ uống";
+           document.getElementById("inpImageAdd").value = "";
+           document.getElementById("imgAdd").src = "";
+};
+
+
 // ===========AUTO===================
 const autoRun = () => {
   getAllDrinkAdmin("", 1, "none", renderProduct);
@@ -188,3 +261,20 @@ const autoRun = () => {
 autoRun();
 
 getAllOrderHistory(renderOrderHistory);
+
+ // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyCQzqaoSGXZ3jyjOQMP7FU-HIE_EW1aL7Y",
+    authDomain: "projectcloud-8cf4c.firebaseapp.com",
+    projectId: "projectcloud-8cf4c",
+    storageBucket: "projectcloud-8cf4c.appspot.com",
+    messagingSenderId: "627687791667",
+    appId: "1:627687791667:web:b782ea84400df14fc61746",
+    measurementId: "G-50T1YDQJ9B"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  console.log("firebase", firebase);
+  

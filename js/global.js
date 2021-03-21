@@ -41,7 +41,7 @@ const getAllDrink = (keyword, page, sortBy, cb) => {
     headers: { Accept: "*" },
   })
     .then((result) => {
-      console.log("result data", result.data);
+      console.log("result data 123", result);
       cb(result.data.listProductDTOS, "show_drink");
       $("#drinkPaging").twbsPagination({
         totalPages: result.data.totalPage,
@@ -242,7 +242,7 @@ const updateProduct = (
     .then((result) => {
       if (result.status == 200) {
         autoRun();
-        document.getElementById("btn_close_modal_detail_product").click();
+        document.getElementById("btn_close_modal_detail_product").click();        
       } else {
         Swal.fire({
           title: "Cập nhật thất bại",
@@ -381,6 +381,7 @@ const createVerificationCode = (phoneNumber, listCart, autoRunInIndex) => {
     },
   })
     .then((result) => {
+      console.log("verification code" , result);
       if (result.status == 200) {
         let timerInterval;
         Swal.fire({
@@ -454,7 +455,11 @@ const saveOrderPayment = (phoneNumber, listCart, autoRunInIndex) => {
 
   }).then((result) => {
     if(result.status == 200){
-      alert("Thanh toán thành công rồi nha ");
+      Swal.fire({
+        title: "Thanh toán thành công",
+        icon: "success",
+        showCancelButton: false,
+      });
       document.getElementById("btn_close_phone_input").click();
       document.getElementById('btn_close_cart').click();     
       autoRunInIndex(); 
