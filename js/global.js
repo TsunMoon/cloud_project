@@ -1,4 +1,5 @@
 const API = "https://projectcloudver1.herokuapp.com";
+// const API = "http://localhost:8080";
 
 const WELCOME = API + "/welcome";
 const AUTHENTICATION = API + "/authentication";
@@ -6,6 +7,7 @@ const ADMIN = API + "/admin";
 
 //WELCOME
 const GET_ALL_PRODUCT = WELCOME + "/get_all_product";
+const GET_ALL_PRODUCT_ADMIN = WELCOME + "/get_all_product_admin";
 const CREATE_VERIFICATION_CODE = WELCOME + "/create_verification_code";
 const ENTER_VERIFICATION_CODE = WELCOME + "/enter_verification_code";
 const SAVE_ORDER_PAYMENT = WELCOME + "/save_order_payment";
@@ -14,6 +16,7 @@ const AUTHENTICATE = AUTHENTICATION + "/authenticate";
 
 //ADMIN
 const GET_PRODUCT_BY_ID = ADMIN + "/get_product_by_id";
+const GET_PRODUCT_BY_ID_ADMIN = ADMIN + "/get_product_by_id_admin";
 const UPDATE_PRODUCT = ADMIN + "/update_product";
 const DELETE_PRODUCT = ADMIN + "/delete_product";
 const GET_ALL_ORDER_HISTORY = ADMIN + "/get_all_order_history";
@@ -125,7 +128,7 @@ const loginRequest = (username, password) => {
 const getAllDrinkAdmin = (keyword, page, sortBy, cb) => {
   axios({
     method: "GET",
-    url: GET_ALL_PRODUCT,
+    url: GET_ALL_PRODUCT_ADMIN,
     params: {
       keyword: keyword,
       page: page,
@@ -155,7 +158,7 @@ const getAllDrinkAdmin = (keyword, page, sortBy, cb) => {
 const getAllFoodAdmin = (keyword, page, sortBy, cb) => {
   axios({
     method: "GET",
-    url: GET_ALL_PRODUCT,
+    url: GET_ALL_PRODUCT_ADMIN,
     params: {
       keyword: keyword,
       page: page,
@@ -185,7 +188,7 @@ const getAllFoodAdmin = (keyword, page, sortBy, cb) => {
 const getProductById = (idProduct) => {
   axios({
     method: "GET",
-    url: GET_PRODUCT_BY_ID + "/" + idProduct,
+    url: GET_PRODUCT_BY_ID_ADMIN + "/" + idProduct,
     headers: {
       Accept: "*",
       Authorization: "Bearer " + jwt,
